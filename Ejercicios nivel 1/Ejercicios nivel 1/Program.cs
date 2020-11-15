@@ -6,49 +6,50 @@ namespace Ejercicios_nivel_1
     {
         static void Main(string[] args)
         {
-            //Ejercicio #1
-            /*Console.WriteLine("Ingrese su Nombre");
+            Console.WriteLine("Qué ejercicio querés ejecutar?");
+            int opcion = Convert.ToInt32(Console.ReadLine());
+            
+            EjecutarEjericioElegido(opcion);
 
-            String nombre = Console.ReadLine();
+            Console.ReadLine();
+        }
 
-            Console.WriteLine($"Hola, {nombre}");*/
 
-            /*Ejercicio #2
-            Console.WriteLine("Ingrese su Nombre y Apellido");
 
-            String nombreApellido = Console.ReadLine();
 
-            Console.WriteLine($"Hola, {nombreApellido}");*/
+        private static void EjecutarEjericioElegido(int opcion)
+        {
+            switch (opcion)
+            {
+                case 1:
+                    ImprimirNombreEnConsola();
+                    break;
+                case 2:
+                    ImprimirNombreYApellido();
+                    break;
+                case 4:
+                    double numero1 = NuevoValorDecimal();
+                    double numero2 = NuevoValorDecimal();
+                    Console.WriteLine("El resultado es " + (numero1 + numero2));
+                    break;
 
-            //Ejercicio #4
-            /*Console.WriteLine("Ingrese el primer numeros (con decimales)");
+                case 5:
+                    double suma = SumaNumeros();
+                    double numero3 = NuevoValorDecimal();
+                    double multiplicacion = suma * numero3;
 
-            double numero1 = double.Parse(Console.ReadLine());
-
-            Console.WriteLine("Ingrese el segundo numero (con decimales)");
-
-            double numero2 = double.Parse(Console.ReadLine());
-
-            Console.WriteLine("El resultado es " + (numero1 + numero2));*/
-
-            //Ejercicio #5
-            /*Console.WriteLine("Ingrese el primer numeros (con decimales)");
-
-            double numero1 = double.Parse(Console.ReadLine());
-
-            Console.WriteLine("Ingrese el segundo numero (con decimales)");
-
-            double numero2 = double.Parse(Console.ReadLine());
-
-            double suma = numero1 + numero2;
-
-            Console.WriteLine("Ingrese el tercer numero (con decimales)");
-
-            double numero3 = double.Parse(Console.ReadLine());
-
-            double multiplicacion = suma * numero3;
-
-            Console.WriteLine($"El resultado es {multiplicacion}");*/
+                    Console.WriteLine($"El resultado es {multiplicacion}");
+                    break;
+                case 6:
+                    //codigo
+                    break;
+                case 7:
+                    //codigo
+                    break;
+                default:
+                    Console.WriteLine("No conozco ese ejercicio");
+                    break;
+            }
 
             //Ejercicio #6
             /*int Xrebanadas, Yrebanadas, Zrebanadas;
@@ -160,7 +161,44 @@ namespace Ejercicios_nivel_1
             entran = mil / cien;
             
             Console.WriteLine($"el numero {cien} entra {entran} veces en el numero {mil}");*/
+        }
 
+        private static double SumaNumeros()
+        {
+            double numero1 = NuevoValorDecimal();
+            double numero2 = NuevoValorDecimal();
+            double suma = numero1 + numero2;
+            return suma;
+        }
+
+        private static double NuevoValorDecimal()
+        {
+            Console.WriteLine("Ingresa un valor (con decimales)");
+            return double.Parse(Console.ReadLine());
+        }
+
+        private static int NuevoValorEntero()
+        {
+            Console.WriteLine("Ingresa un valor entero");
+            return int.Parse(Console.ReadLine());
+        }
+
+        private static void ImprimirNombreYApellido()
+        {
+            Console.WriteLine("Ingrese su Nombre y Apellido");
+
+            String nombreApellido = Console.ReadLine();
+
+            Console.WriteLine($"Hola, {nombreApellido}");
+        }
+
+        private static void ImprimirNombreEnConsola()
+        {
+            Console.WriteLine("Ingrese su Nombre");
+
+            String nombre = Console.ReadLine();
+
+            Console.WriteLine($"Hola, {nombre}");
         }
     }
 }
